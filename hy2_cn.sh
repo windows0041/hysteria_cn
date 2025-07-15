@@ -1342,7 +1342,7 @@ updateHysteriaCore(){
 
 hihy_update_notifycation(){
 	localV=${hihyV}
-	remoteV=`curl -fsSL https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
+	remoteV=`curl -fsSL https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
 	if [ -z $remoteV ];then
 		echoColor red "Network Error: Can't connect to Github for checking hihy version!"
 	else
