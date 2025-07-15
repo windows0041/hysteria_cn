@@ -1257,7 +1257,7 @@ setHysteriaConfig(){
 }
 
 downloadHysteriaCore(){
-    local version=`curl --silent --head https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
+    local version=`curl --silent --head https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
     
     echo -e "The Latest hysteria version: $(echoColor red "${version}")\nDownload..."
     
@@ -1363,7 +1363,7 @@ hihyUpdate(){
 		echoColor green "Already the latest version.Ignore."
 	else
 		rm /usr/bin/hihy
-		wget -q -O /usr/bin/hihy --no-check-certificate https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh 2>/dev/null
+		wget -q -O /usr/bin/hihy --no-check-certificate https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh 2>/dev/null
 		chmod +x /usr/bin/hihy
 		echoColor green "hihy更新完成."
 	fi
