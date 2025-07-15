@@ -13,8 +13,6 @@ echo -e "-> 您选择的hysteria版本为: \033[32m$hysteria_version\033[0m"
 echo -e "Downloading hihy..."
 
 if [ "$hysteria_version" = "hysteria2" ]; then
-    wget -q --no-check-certificate -O /usr/bin/hihy https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2_cn.sh && chmod +x /usr/bin/hihy
-else
-    wget -q --no-check-certificate -O /usr/bin/hihy https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/v1/server/install.sh && chmod +x /usr/bin/hihy
+    wget -q --no-check-certificate -O /usr/bin/hihy https://gh.llkk.cc/https://github.com/windows0041/hysteria_cn/blob/master/hy2_cn.sh && chmod +x /usr/bin/hihy
 fi
 /usr/bin/hihy
