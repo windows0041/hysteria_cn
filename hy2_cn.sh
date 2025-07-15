@@ -1257,7 +1257,7 @@ setHysteriaConfig(){
 }
 
 downloadHysteriaCore(){
-    local version=`curl --silent --head https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
+    local version=`curl --silent --head https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
     
     echo -e "The Latest hysteria version: $(echoColor red "${version}")\nDownload..."
     
@@ -1309,7 +1309,7 @@ downloadHysteriaCore(){
 updateHysteriaCore(){
     if [ -f "/etc/hihy/bin/appS" ]; then
         local localV=$(echo app/$(/etc/hihy/bin/appS version | grep Version: | awk '{print $2}' | head -n 1))
-        local remoteV=`curl --silent --head https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
+        local remoteV=`curl --silent --head https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
         echo -e "Local core version: $(echoColor red "${localV}")"
         echo -e "Remote core version: $(echoColor red "${remoteV}")"
         if [ "${localV}" = "${remoteV}" ]; then
@@ -1342,7 +1342,7 @@ updateHysteriaCore(){
 
 hihy_update_notifycation(){
 	localV=${hihyV}
-	remoteV=`curl -fsSL https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
+	remoteV=`curl -fsSL https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
 	if [ -z $remoteV ];then
 		echoColor red "Network Error: Can't connect to Github for checking hihy version!"
 	else
@@ -1373,7 +1373,7 @@ hihyUpdate(){
 hyCore_update_notifycation(){
 	if [ -f "/etc/hihy/bin/appS" ]; then
   		local localV=$(echo app/$(/etc/hihy/bin/appS version | grep Version: | awk '{print $2}' | head -n 1))
-        local remoteV=`curl --silent --head https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
+        local remoteV=`curl --silent --head https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g'`
 		if [ -z $remoteV ];then
 			echoColor red "Network Error: Can't connect to Github for checking the hysteria version!"
 		else
