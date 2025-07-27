@@ -216,7 +216,7 @@ checkSystemForUpdate() {
     if ! command -v yq >/dev/null; then
         arch=$(getArchitecture)
         echoColor purple "正在下载 yq (${arch})..."
-        wget "https://gh.llkk.cc/https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${arch}" -O /usr/bin/yq
+        wget "https://ghproxy.net/https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${arch}" -O /usr/bin/yq
         if [ $? -ne 0 ]; then
             echoColor red "下载 yq 失败"
             exit 1
@@ -1002,7 +1002,7 @@ setHysteriaConfig(){
             addOrUpdateYaml "$yaml_file" "masquerade.file.dir" "${masquerade_file}"
             if [ ! -d "${masquerade_file}" ];then
                 mkdir -p ${masquerade_file}
-                wget -q -O ./mikutap.tar.gz https://gh.llkk.cc/https://github.com/HFIProgramming/mikutap/archive/refs/tags/2.0.0.tar.gz
+                wget -q -O ./mikutap.tar.gz https://ghproxy.net/https://github.com/HFIProgramming/mikutap/archive/refs/tags/2.0.0.tar.gz
                 tar -xzf ./mikutap.tar.gz -C ${masquerade_file} --strip-components=1
                 rm -r ./mikutap.tar.gz
             fi
@@ -1267,7 +1267,7 @@ downloadHysteriaCore(){
     fi
     
     local arch=$(uname -m)
-    local url_base="https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/download/${version}/hysteria-linux-"
+    local url_base="https://ghproxy.net/https://github.com/apernet/hysteria/releases/download/${version}/hysteria-linux-"
     local download_url=""
     
     case "$arch" in
@@ -1342,7 +1342,7 @@ updateHysteriaCore(){
 
 hihy_update_notifycation(){
 	localV=${hihyV}
-	remoteV=`curl -fsSL https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
+	remoteV=`curl -fsSL https://ghproxy.net/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
 	if [ -z $remoteV ];then
 		echoColor red "Network Error: Can't connect to Github for checking hihy version!"
 	else
@@ -1354,7 +1354,7 @@ hihy_update_notifycation(){
 
 hihyUpdate(){
 	localV=${hihyV}
-	remoteV=`curl -fsSL https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
+	remoteV=`curl -fsSL https://ghproxy.net/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh | sed  -n 2p | cut -d '"' -f 2`
 	if [ -z $remoteV ];then
 		echoColor red "Network Error: Can't connect to Github!"
 		exit
@@ -1363,7 +1363,7 @@ hihyUpdate(){
 		echoColor green "Already the latest version.Ignore."
 	else
 		rm /usr/bin/hihy
-		wget -q -O /usr/bin/hihy --no-check-certificate https://gh.llkk.cc/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh 2>/dev/null
+		wget -q -O /usr/bin/hihy --no-check-certificate https://ghproxy.net/https://raw.githubusercontent.com/emptysuns/Hi_Hysteria/refs/heads/main/server/hy2.sh 2>/dev/null
 		chmod +x /usr/bin/hihy
 		echoColor green "hihy更新完成."
 	fi
@@ -1445,7 +1445,7 @@ install() {
     echoColor purple "Ready to install.\n"
 
     # 获取版本并下载核心
-    version=$(curl --silent --head https://gh.llkk.cc/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g')
+    version=$(curl --silent --head https://ghproxy.net/https://github.com/apernet/hysteria/releases/latest | grep -i location | grep -o 'tag/[^[:space:]]*' | sed 's/tag\///;s/ //g')
     checkSystemForUpdate
     downloadHysteriaCore
     setHysteriaConfig
