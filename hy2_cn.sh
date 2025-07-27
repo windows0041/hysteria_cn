@@ -216,7 +216,7 @@ checkSystemForUpdate() {
     if ! command -v yq >/dev/null; then
         arch=$(getArchitecture)
         echoColor purple "正在下载 yq (${arch})..."
-        wget "https://ghproxy.net/https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${arch}" -O /usr/bin/yq
+        wget "https://gitproxy.click/https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${arch}" -O /usr/bin/yq
         if [ $? -ne 0 ]; then
             echoColor red "下载 yq 失败"
             exit 1
