@@ -9,7 +9,7 @@
 
 set -e
 
-speed_url="http://hk-proxy.gitwarp.top:555/"
+speed_url="http://gh.halonice.com/"
 
 ###
 # SCRIPT CONFIGURATION
